@@ -21,6 +21,6 @@ stages:
       displayName: Build an image
       inputs:
         repository: '1383/azure_pipeline'
-        command: 'build'
+        command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: '$(tag)'
