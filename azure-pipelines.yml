@@ -18,9 +18,16 @@ stages:
     displayName: Build
     steps:
     - task: Docker@2
+      inputs:
+       command: 'login'
+       containerRegistry: login-to-hub
+    - task: Docker@2
       displayName: Build an image
       inputs:
         repository: '1383/azure_pipeline'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: '$(tag)'
+        
+
+  
