@@ -1,0 +1,26 @@
+trigger:
+  branches:
+    include:
+      - devops
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  AZURE_ARTIFACTS_ENV_ACCESS_TOKEN: 'qtn6dfiua2bbk2aghvvvz7xppuxamps5kgqk76vov3r6px25b3fa'
+  tag: '$(Build.BuildId)'
+
+stages:
+- stage: Build
+  displayName: Build image
+  jobs:  
+  - job: Build
+    displayName: Build
+    steps:
+    - task: Docker@2
+      displayName: Build an image
+      inputs:
+        repository: '1383/azure_pipeline'
+        command: 'build'
+        Dockerfile: '**/Dockerfile'
+        tags: '$(tag)'
