@@ -7,7 +7,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  AZURE_ARTIFACTS_ENV_ACCESS_TOKEN: 'xxxxxxxxxxxxxxxxxxxxxxxxxx'
+  AZURE_ARTIFACTS_ENV_ACCESS_TOKEN: 'xxxxxxxxyyyxxxxxxxxxxxxxxxxxx'
   tag: '$(Build.BuildId)'
 
 stages:
