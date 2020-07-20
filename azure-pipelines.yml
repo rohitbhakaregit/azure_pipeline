@@ -12,22 +12,20 @@ variables:
 
 stages:
 - stage: Build
-  displayName: Build image
+  displayName: Build & push the image 
   jobs:  
   - job: Build
-    displayName: Build
+    displayName: Build Job
     steps:
     - task: Docker@2
+      displayName: Docker login
       inputs:
        command: 'login'
        containerRegistry: login-to-hub
     - task: Docker@2
-      displayName: Build an image
+      displayName: Build & pusing the image
       inputs:
         repository: '1383/azure_pipeline'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: '$(tag)'
-        
-
-  
